@@ -1,0 +1,17 @@
+{
+    "name": "il-marc/Yii-BookStore",
+    "description": "Test project",
+    "minimum-stability": "dev",
+    "license": "New BSD",
+    "authors": [
+        {
+            "name": "Ilia Marchenko",
+            "email": "il-marc@ya.ru"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2-app-basic": "2.0.0",
+        "yiisoft/yii2-gii": "2.0.0",
+        "yiisoft/yii2-debug": "2.0.0"
+    }
+}
