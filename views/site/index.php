@@ -11,7 +11,14 @@ $this->title = 'Yii-BookStore';
                 <br>
                 <p>Simple project for books management.</p>
                 <br>
-                <p><a class="btn btn-lg btn-primary" target="_blank" href="https://github.com/il-marc/Yii-BookStore">View on GitHub</a></p>
+                <p>
+                    <button type="button" id="recoverButton" class="btn btn-default" onclick="recoverDB()">
+                        Recover DB
+                    </button>
+                    <a class="btn btn-lg btn-primary" target="_blank" href="https://github.com/il-marc/Yii-BookStore">
+                        View on GitHub
+                    </a>
+                </p>
             </div>
         </div>
     </div>

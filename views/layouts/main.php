@@ -40,7 +40,7 @@ AppAsset::register($this);
                     ['label' => 'Authors', 'url' => ['author/index']],
                     ['label' => 'Subjects', 'url' => ['subject/index']],
                     Yii::$app->user->isGuest ?
-                        ['label' => 'Login', 'url' => ['/site/login']] :
+                        ['label' => 'Login', 'url' => ['/site/login'], 'class' => 'btn btn-succes'] :
                         ['label' => 'Logout (' . Yii::$app->user->identity->username . ')',
                             'url' => ['/site/logout'],
                             'linkOptions' => ['data-method' => 'post']],
@@ -66,24 +66,7 @@ AppAsset::register($this);
 
 <?php $this->endBody() ?>
 
-<script>
-    function setBlur(element, blurSize) {
-        $(element).
-        css('-webkit-filter', 'blur('+ blurSize +'px)').
-           css('-moz-filter', 'blur('+ blurSize +'px)').
-             css('-o-filter', 'blur('+ blurSize +'px)').
-            css('-ms-filter', 'blur('+ blurSize +'px)').
-                css('filter', 'blur('+ blurSize +'px)')
-    }
-    $(document).ready(function () {
-        if ($(".bookcase").length) {
-            setBlur($(".bookcase").css('height', window.innerHeight), window.innerHeight / 200);
-            $(window).resize(function () {
-                setBlur($(".bookcase").css('height', window.innerHeight), window.innerHeight / 200);
-            });
-        }
-    });
-</script>
+<script src="/js/functions.js"></script>
 </body>
 </html>
 <?php $this->endPage() ?>
