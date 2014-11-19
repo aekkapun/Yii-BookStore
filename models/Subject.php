@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "subject".
@@ -12,7 +13,7 @@ use Yii;
  *
  * @property Book[] $books
  */
-class Subject extends \yii\db\ActiveRecord
+class Subject extends ActiveRecord
 {
     /**
      * @inheritdoc
