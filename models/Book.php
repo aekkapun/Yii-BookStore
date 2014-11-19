@@ -4,6 +4,7 @@ namespace app\models;
 
 use Yii;
 use yii\db\ActiveRecord;
+use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "book".
@@ -31,7 +32,8 @@ class Book extends ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'cover'], 'required'],
+            [['title', 'cover'], 'required', 'on' => 'create'],
+            [['title'], 'required', 'on' => 'update'],
             [['title'], 'string', 'max' => 120],
             ['cover','file',
                 #'extensions' => 'jpg, png',

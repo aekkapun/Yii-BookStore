@@ -20,9 +20,9 @@ use himiklab\thumbnail\EasyThumbnailImage;
             EasyThumbnailImage::THUMBNAIL_OUTBOUND,
             ['alt' => $book->title,
                 'class'=>'img-rounded']
-        ), '/book/view&id='.$book->id) ?>
+        ), ['book/view', 'id' => $book->id, 'title' => $book->title]) ?>
         <br>
-        <?= Html::a($book->title, '/book/view&id='.$book->id) ?>
+        <?= Html::a($book->title, ['book/view', 'id' => $book->id, 'title' => $book->title]) ?>
     </div>
     <?= ($key+1)%$booksInRow == 0?'</div>':null ?>
 <?php endforeach ?>

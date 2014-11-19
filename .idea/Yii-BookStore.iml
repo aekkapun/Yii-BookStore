@@ -12,6 +12,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/cebe/markdown" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/ezyang/htmlpurifier" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/fortawesome/font-awesome" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/himiklab/yii2-easy-thumbnail-image-helper" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/imagine/imagine" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/phpspec/php-diff" />
@@ -48,6 +49,7 @@
           <root url="file://$MODULE_DIR$/vendor/himiklab/yii2-easy-thumbnail-image-helper" />
           <root url="file://$MODULE_DIR$/vendor/ezyang/htmlpurifier" />
           <root url="file://$MODULE_DIR$/vendor/yiisoft/yii2-bootstrap" />
+          <root url="file://$MODULE_DIR$/vendor/fortawesome/font-awesome" />
           <root url="file://$MODULE_DIR$/vendor/yiisoft/yii2-gii" />
           <root url="file://$MODULE_DIR$/vendor/bower/jquery" />
           <root url="file://$MODULE_DIR$/vendor/swiftmailer/swiftmailer" />
@@ -71,6 +73,7 @@
           <root url="file://$MODULE_DIR$/vendor/himiklab/yii2-easy-thumbnail-image-helper" />
           <root url="file://$MODULE_DIR$/vendor/ezyang/htmlpurifier" />
           <root url="file://$MODULE_DIR$/vendor/yiisoft/yii2-bootstrap" />
+          <root url="file://$MODULE_DIR$/vendor/fortawesome/font-awesome" />
           <root url="file://$MODULE_DIR$/vendor/yiisoft/yii2-gii" />
           <root url="file://$MODULE_DIR$/vendor/bower/jquery" />
           <root url="file://$MODULE_DIR$/vendor/swiftmailer/swiftmailer" />

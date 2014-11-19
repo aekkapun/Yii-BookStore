@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
     <?php if (!Yii::$app->user->isGuest): ?>
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Update', ['book/update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
         <?= Html::a('Delete', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
@@ -84,7 +84,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?php foreach($model->subjects as $key => $subject): ?>
                     <?= Html::a(
                         $subject->name,
-                        ['subject/view', 'id' => $subject->id]
+                        ['subject/view', 'id' => $subject->id, 'name' => $subject->name]
                     ).($key != $lastSubjectKey?', ':null) ?>
                 <?php endforeach ?>
             </td>

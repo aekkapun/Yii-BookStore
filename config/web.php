@@ -32,18 +32,20 @@ $config = [
             'class' => 'himiklab\thumbnail\EasyThumbnail',
             'cacheAlias' => 'assets/gallery_thumbnails',
         ],
+        'urlManager' => [
+            'class' => 'yii\web\UrlManager',
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            'rules'=>array(
+                'books'                          => 'book/index',
+                'subjects'                       => 'subject/index',
+                'book/<id:\d+>/<title:.*?>'      => 'book/view',
+                'subject/<id:\d+>/<name:.*?>'    => 'subject/view',
+            ),
+        ],
         'db' => require(__DIR__ . '/db.php'),
     ],
     'params' => $params,
 ];
-
-if (YII_ENV_DEV) {
-    // configuration adjustments for 'dev' environment
-    $config['bootstrap'][] = 'debug';
-    $config['modules']['debug'] = 'yii\debug\Module';
-
-    $config['bootstrap'][] = 'gii';
-    $config['modules']['gii'] = 'yii\gii\Module';
-}
 
 return $config;

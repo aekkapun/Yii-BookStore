@@ -35,9 +35,9 @@ AppAsset::register($this);
             echo Nav::widget([
                 'options' => ['class' => 'navbar-nav navbar-right'],
                 'items' => [
-                    ['label' => 'Books', 'url' => ['/book']],
-                    ['label' => 'Authors', 'url' => ['/author']],
-                    ['label' => 'Subjects', 'url' => ['/subject']],
+                    ['label' => 'Books', 'url' => ['book/index']],
+                    ['label' => 'Authors', 'url' => ['author/index']],
+                    ['label' => 'Subjects', 'url' => ['subject/index']],
                     Yii::$app->user->isGuest ?
                         ['label' => 'Login', 'url' => ['/site/login']] :
                         ['label' => 'Logout (' . Yii::$app->user->identity->username . ')',
@@ -58,7 +58,7 @@ AppAsset::register($this);
 
     <footer class="footer">
         <div class="container">
-            <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
+            <p class="pull-left">&copy; Ilia Marchenko 2014</p>
             <p class="pull-right"><?= Yii::powered() ?></p>
         </div>
     </footer>

@@ -52,4 +52,16 @@ class Subject extends ActiveRecord
     {
         return $this->hasMany(Book::className(), ['id' => 'book_id'])->viaTable('subject2book', ['subject_id' => 'id']);
     }
+    /**
+     * @return array
+     */
+    public static function getSubjectsMap()
+    {
+        $subjects = Subject::find()->all();
+        $subjectsMap = [];
+        foreach ($subjects as $subject) {
+            $subjectsMap[$subject->id] = $subject->name;
+        }
+        return $subjectsMap;
+    }
 }

@@ -2,6 +2,8 @@
 
 namespace app\controllers;
 
+use app\models\Author2Book;
+use app\models\Subject2Book;
 use Yii;
 use app\models\Book;
 use app\models\BookSearch;
@@ -76,7 +78,6 @@ class BookController extends Controller
     public function actionCreate()
     {
         $model = new Book();
-
         if ($model->load(Yii::$app->request->post())) {
             $model->cover = UploadedFile::getInstance($model, 'cover');
             if ($model->validate()) {
@@ -103,15 +104,38 @@ class BookController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
+        $oldCover = $model->cover;
         if ($model->load(Yii::$app->request->post())) {
-            $model->cover = UploadedFile::getInstance($model, 'cover');
+            $authorsIDs  = @Yii::$app->request->post()["author_id"];
+            $subjectsIDs = @Yii::$app->request->post()["subject_id"];
             if ($model->validate()) {
-                $coverPath = str_replace('\\', DIRECTORY_SEPARATOR,
-                    dirname(__DIR__).'\web\uploads\covers\\');
-                $coverName = hash('crc32',$model->cover->baseName).'.'.$model->cover->extension;
-                $model->cover->saveAs($coverPath.$coverName);
-                $model->cover = $coverName;
+                if ($model->cover = UploadedFile::getInstance($model, 'cover')) {
+                    $coverPath = str_replace('\\', DIRECTORY_SEPARATOR,
+                        dirname(__DIR__) . '\web\uploads\covers\\');
+                    $coverName = hash('crc32', $model->cover->baseName) . '.' . $model->cover->extension;
+                    $model->cover->saveAs($coverPath . $coverName);
+                    $model->cover = $coverName;
+                } else {
+                    $model->cover = $oldCover;
+                }
+                Author2Book::deleteAll(['book_id' => $model->id]);
+                if ($authorsIDs) {
+                    foreach ($authorsIDs as $authorID) {
+                        $author2book = new Author2Book();
+                        $author2book->author_id = $authorID;
+                        $author2book->book_id = $model->id;
+                        $author2book->save();
+                    }
+                }
+                Subject2Book::deleteAll(['book_id' => $model->id]);
+                if ($subjectsIDs) {
+                    foreach ($subjectsIDs as $subjectID) {
+                        $subject2book = new Subject2Book();
+                        $subject2book->subject_id = $subjectID;
+                        $subject2book->book_id = $model->id;
+                        $subject2book->save();
+                    }
+                }
                 $model->save();
                 return $this->redirect(['view', 'id' => $model->id]);
             }
@@ -129,6 +153,8 @@ class BookController extends Controller
      */
     public function actionDelete($id)
     {
+        Subject2Book::deleteAll(['book_id' => $id]);
+        Author2Book::deleteAll(['book_id' => $id]);
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);

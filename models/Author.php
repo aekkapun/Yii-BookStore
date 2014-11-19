@@ -54,4 +54,17 @@ class Author extends ActiveRecord
     {
         return $this->hasMany(Book::className(), ['id' => 'book_id'])->viaTable('author2book', ['author_id' => 'id']);
     }
+    /**
+     * @return array
+     */
+    public static function getAuthorsMap()
+    {
+        $authors = Author::find()->all();
+        $authorsMap = [];
+        foreach ($authors as $author) {
+            $authorsMap[$author->id] = $author->second_name ." ". $author->first_name;
+        }
+        return $authorsMap;
+    }
+
 }
