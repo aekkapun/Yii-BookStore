@@ -33,7 +33,9 @@ $this->params['breadcrumbs'][] = $this->title;
         <?php echo $this->render('_list', ['dataProvider' => $dataProvider]); ?>
     <?php else: ?>
         <div class="row">
-            <h1>Nothing found :(</h1>
+            <div class="col-sm-12">
+                <p>Nothing found :(</p>
+            </div>
         </div>
     <?php endif ?>
 </div>

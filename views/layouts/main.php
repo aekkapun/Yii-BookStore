@@ -58,12 +58,31 @@ AppAsset::register($this);
 
     <footer class="footer">
         <div class="container">
-            <p class="pull-left">&copy; Ilia Marchenko 2014</p>
+            <p class="pull-left">&copy; Ilia Marchenko &lt;<a href="mailto:il-marc@ya.ru">il-marc@ya.ru</a>&gt; 2014</p>
             <p class="pull-right"><?= Yii::powered() ?></p>
         </div>
     </footer>
 
 <?php $this->endBody() ?>
+
+<script>
+    function setBlur(element, blurSize) {
+        $(element).
+        css('-webkit-filter', 'blur('+ blurSize +'px)').
+           css('-moz-filter', 'blur('+ blurSize +'px)').
+             css('-o-filter', 'blur('+ blurSize +'px)').
+            css('-ms-filter', 'blur('+ blurSize +'px)').
+                css('filter', 'blur('+ blurSize +'px)')
+    }
+    $(document).ready(function () {
+        if ($(".bookcase").length) {
+            setBlur($(".bookcase").css('height', window.innerHeight), window.innerHeight / 200);
+            $(window).resize(function () {
+                setBlur($(".bookcase").css('height', window.innerHeight), window.innerHeight / 200);
+            });
+        }
+    });
+</script>
 </body>
 </html>
 <?php $this->endPage() ?>
