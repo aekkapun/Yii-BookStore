@@ -32,12 +32,18 @@ class Book extends ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'cover'], 'required', 'on' => 'create'],
-            [['title'], 'required', 'on' => 'update'],
+            [['title', 'cover'],
+                'required',
+                'on'=>'insert'
+            ],
+            [['title'],
+                'required',
+                'on'=>'update'
+            ],
             [['title'], 'string', 'max' => 120],
             ['cover','file',
-                #'extensions' => 'jpg, png',
-                #'mimeTypes' => 'image/jpeg, image/png', //TODO install the fileinfo PHP extension
+                'extensions' => 'jpg, png',
+                'mimeTypes' => 'image/jpeg, image/png', //TODO install the fileinfo PHP extension
             ],
         ];
     }

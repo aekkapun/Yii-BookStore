@@ -63,7 +63,7 @@ class SubjectController extends Controller
     public function actionView($id)
     {
         $dataProvider = new ActiveDataProvider([
-            'query' => Book::find()->joinWith('authors')
+            'query' => Book::find()->joinWith('subjects')->filterWhere(['subject_id'=>$id])
         ]);
         $pagination = new Pagination();
         $pagination->pageSize = 18;

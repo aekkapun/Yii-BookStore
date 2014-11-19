@@ -8,22 +8,17 @@ use yii\widgets\ActiveForm;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="subject-search">
+<div class="subject-search row">
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
         'method' => 'get',
     ]); ?>
-    <div class="row">
-        <div class="col-sm-4 form-group">
-            <?= $form->field($model, 'id') ?>
-        </div>
-        <div class="col-sm-4">
-            <?= $form->field($model, 'name') ?>
-        </div>
-        <div class="form-group col-sm-4">
-            <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
-            <?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>
-        </div>
+    <div class="col-sm-11">
+        <?= Html::input('text', 'SubjectSearch[name]', $model->name,
+            ['class' => 'form-control', 'placeholder' => $model->attributeLabels()['name']]) ?>
+    </div>
+    <div class="col-sm-1">
+        <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
     </div>
     <?php ActiveForm::end(); ?>
 

@@ -22,7 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
         <?php if(!Yii::$app->user->isGuest): ?>
             <div class="col-sm-2 text-right">
-                <?= Html::a('Create Book', ['create'], ['class' => 'btn btn-success']) ?>
+                <?= Html::a('Create Book', ['create'], ['class' => 'btn btn-success col-sm-12']) ?>
             </div>
         <?php endif ?>
     </div>

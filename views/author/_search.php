@@ -14,16 +14,16 @@ use yii\widgets\ActiveForm;
         'action' => ['index'],
         'method' => 'get',
     ]); ?>
-    <div class="col-sm-4">
+    <div class="col-sm-5">
         <?= Html::input('text', 'AuthorSearch[first_name]', $model->first_name,
             ['class' => 'form-control', 'placeholder' => $model->attributeLabels()['first_name']]) ?>
     </div>
-    <div class="col-sm-5">
+    <div class="col-sm-6">
         <?= Html::input('text', 'AuthorSearch[second_name]', $model->second_name,
             ['class' => 'form-control', 'placeholder' => $model->attributeLabels()['second_name']]) ?>
     </div>
-    <div class="col-sm-3">
-        <?= Html::submitButton('Search', ['class' => 'btn btn-primary col-sm-5']) ?>
+    <div class="col-sm-1">
+        <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
     </div>
     <?php ActiveForm::end(); ?>
 

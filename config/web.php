@@ -37,8 +37,10 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules'=>array(
-                'books'                          => 'book/index',
-                'subjects'                       => 'subject/index',
+                '<controller:\w+>/<id:\d+>'      => '<controller>/view',
+                '<controller:\w+>s'              => '<controller>/index',
+                '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
+                '<controller:\w+>/<action:\w+>'  => '<controller>/<action>',
                 'book/<id:\d+>/<title:.*?>'      => 'book/view',
                 'subject/<id:\d+>/<name:.*?>'    => 'subject/view',
             ),
