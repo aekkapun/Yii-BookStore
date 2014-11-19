@@ -34,4 +34,6 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]) ?>
 
+    <?php echo $this->render('../book/_list', ['dataProvider' => $dataProvider]); ?>
+
 </div>

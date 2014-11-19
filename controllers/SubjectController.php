@@ -7,7 +7,10 @@ use app\models\Subject;
 use app\models\SubjectSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
+use yii\data\ActiveDataProvider;
 use yii\filters\VerbFilter;
+use app\models\Book;
+use yii\data\Pagination;
 
 /**
  * SubjectController implements the CRUD actions for Subject model.
@@ -48,8 +51,15 @@ class SubjectController extends Controller
      */
     public function actionView($id)
     {
+        $dataProvider = new ActiveDataProvider([
+            'query' => Book::find()->joinWith('authors')
+        ]);
+        $pagination = new Pagination();
+        $pagination->pageSize = 18;
+        $dataProvider->setPagination($pagination);
         return $this->render('view', [
             'model' => $this->findModel($id),
+            'dataProvider' => $dataProvider
         ]);
     }
 

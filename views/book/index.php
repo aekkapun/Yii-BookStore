@@ -30,29 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="row" style="margin: 2em 0">
             <p>Found <?=$dataProvider->totalCount?> <?=$dataProvider->totalCount==1?'book':'books'?>.</p>
         </div>
-        <?php foreach ($dataProvider->models as $key=>$book): ?>
-            <?php /** @var \app\models\Book $book */ $booksInRow = 6 ?>
-            <?= ($key+1)%$booksInRow == 1?'<div class="row" style="margin: 2em 0">':null ?>
-            <div class="col-sm-<?=12/$booksInRow?> text-center">
-                <?= Html::a(EasyThumbnailImage::thumbnailImg(
-                    Yii::$app->basePath.'/web/uploads/covers/'.$book->cover,
-                    150,
-                    200,
-                    EasyThumbnailImage::THUMBNAIL_OUTBOUND,
-                    ['alt' => $book->title,
-                     'class'=>'img-rounded']
-                ), '/book/view&id='.$book->id) ?>
-                <br>
-                <?= Html::a($book->title, '/book/view&id='.$book->id) ?>
-            </div>
-            <?= ($key+1)%$booksInRow == 0?'</div>':null ?>
-        <?php endforeach ?>
-        <?= ($dataProvider->count)%$booksInRow != 0?'</div>':null ?>
-        <div class="row text-center">
-        <?= LinkPager::widget([
-        'pagination' => $dataProvider->pagination,
-        ]); ?>
-        </div>
+        <?php echo $this->render('_list', ['dataProvider' => $dataProvider]); ?>
     <?php else: ?>
         <div class="row">
             <h1>Nothing found :(</h1>

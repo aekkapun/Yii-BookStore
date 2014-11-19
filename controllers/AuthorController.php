@@ -3,8 +3,11 @@
 namespace app\controllers;
 
 use Yii;
+use app\models\Book;
 use app\models\Author;
 use app\models\AuthorSearch;
+use yii\data\ActiveDataProvider;
+use yii\data\Pagination;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -48,8 +51,16 @@ class AuthorController extends Controller
      */
     public function actionView($id)
     {
+        $dataProvider = new ActiveDataProvider([
+            'query' => Book::find()->joinWith('authors')
+        ]);
+        $pagination = new Pagination();
+        $pagination->pageSize = 18;
+        $dataProvider->setPagination($pagination);
+
         return $this->render('view', [
             'model' => $this->findModel($id),
+            'dataProvider' => $dataProvider
         ]);
     }
 

@@ -32,10 +32,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'name',
         ],
     ]) ?>
-    <pre>
-    <?php foreach ($model->books as $book): ?>
-        <?= $book->title ?>
-    <?php endforeach ?>
-    </pre>
+
+    <?php echo $this->render('../book/_list', ['dataProvider' => $dataProvider]); ?>
+
 
 </div>
