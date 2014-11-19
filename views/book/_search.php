@@ -17,7 +17,6 @@ use yii\widgets\ActiveForm;
     <div class="col-sm-11">
         <?= Html::input('text', 'BookSearch[title]', $model->title,
             ['class' => 'form-control', 'placeholder' => $model->attributeLabels()['title']]) ?>
-        <?php #= $form->field($model, 'title') ?>
     </div>
     <div class="col-sm-1 text-right">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

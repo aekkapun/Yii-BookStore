@@ -18,7 +18,6 @@ class AuthorSearch extends Author
     public function rules()
     {
         return [
-            [['id'], 'integer'],
             [['first_name', 'second_name'], 'safe'],
         ];
     }
@@ -50,10 +49,6 @@ class AuthorSearch extends Author
         if (!($this->load($params) && $this->validate())) {
             return $dataProvider;
         }
-
-        $query->andFilterWhere([
-            'id' => $this->id,
-        ]);
 
         $query->andFilterWhere(['like', 'first_name', $this->first_name])
             ->andFilterWhere(['like', 'second_name', $this->second_name]);

@@ -10,20 +10,31 @@ use yii\widgets\ListView;
 $this->title = 'Authors';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="author-index">
+<div class="author-index container">
 
     <h1><?= Html::encode($this->title) ?></h1>
-    <?php echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <p>
-        <?= Html::a('Create Author', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+    <div class="row">
+        <div class="col-sm-<?=Yii::$app->user->isGuest?12:10?>">
+            <?php echo $this->render('_search', ['model' => $searchModel]); ?>
+        </div>
+        <?php if(!Yii::$app->user->isGuest): ?>
+        <div class="col-sm-2 text-right">
+            <?= Html::a('Create Author', ['create'], ['class' => 'btn btn-success']) ?>
+        </div>
+        <?php endif ?>
+    </div>
 
     <?= ListView::widget([
         'dataProvider' => $dataProvider,
         'itemOptions' => ['class' => 'item'],
         'itemView' => function ($model, $key, $index, $widget) {
-            return Html::a(Html::encode($model->first_name .' '. $model->second_name), ['view', 'id' => $model->id]);
+            /** @var \app\models\Author $model */
+            return Html::a(Html::encode(
+                    $model->first_name .' '.
+                    $model->second_name.
+                    ' ('.count($model->books)).')',
+                ['view', 'id' => $model->id]);
         },
     ]) ?>
 
