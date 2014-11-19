@@ -12,6 +12,8 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/cebe/markdown" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/ezyang/htmlpurifier" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/himiklab/yii2-easy-thumbnail-image-helper" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/imagine/imagine" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/phpspec/php-diff" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/swiftmailer/swiftmailer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/yiisoft/yii2" />
@@ -20,6 +22,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/yiisoft/yii2-composer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/yiisoft/yii2-debug" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/yiisoft/yii2-gii" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/yiisoft/yii2-imagine" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/yiisoft/yii2-swiftmailer" />
     </content>
     <orderEntry type="inheritedJdk" />
@@ -27,10 +30,12 @@
     <orderEntry type="module-library">
       <library name="PHP">
         <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/imagine/imagine" />
           <root url="file://$MODULE_DIR$/vendor/bower/punycode" />
           <root url="file://$MODULE_DIR$/vendor/bower/yii2-pjax" />
           <root url="file://$MODULE_DIR$/vendor/bower/typeahead.js" />
           <root url="file://$MODULE_DIR$/vendor/yiisoft/yii2" />
+          <root url="file://$MODULE_DIR$/vendor/yiisoft/yii2-imagine" />
           <root url="file://$MODULE_DIR$/vendor/cebe/markdown" />
           <root url="file://$MODULE_DIR$/vendor/phpspec/php-diff" />
           <root url="file://$MODULE_DIR$/vendor/yiisoft/yii2-debug" />
@@ -40,6 +45,7 @@
           <root url="file://$MODULE_DIR$/vendor/yiisoft/yii2-swiftmailer" />
           <root url="file://$MODULE_DIR$/vendor/bower/jquery.inputmask" />
           <root url="file://$MODULE_DIR$/vendor/yiisoft/yii2-composer" />
+          <root url="file://$MODULE_DIR$/vendor/himiklab/yii2-easy-thumbnail-image-helper" />
           <root url="file://$MODULE_DIR$/vendor/ezyang/htmlpurifier" />
           <root url="file://$MODULE_DIR$/vendor/yiisoft/yii2-bootstrap" />
           <root url="file://$MODULE_DIR$/vendor/yiisoft/yii2-gii" />
@@ -47,10 +53,12 @@
           <root url="file://$MODULE_DIR$/vendor/swiftmailer/swiftmailer" />
         </CLASSES>
         <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/imagine/imagine" />
           <root url="file://$MODULE_DIR$/vendor/bower/punycode" />
           <root url="file://$MODULE_DIR$/vendor/bower/yii2-pjax" />
           <root url="file://$MODULE_DIR$/vendor/bower/typeahead.js" />
           <root url="file://$MODULE_DIR$/vendor/yiisoft/yii2" />
+          <root url="file://$MODULE_DIR$/vendor/yiisoft/yii2-imagine" />
           <root url="file://$MODULE_DIR$/vendor/cebe/markdown" />
           <root url="file://$MODULE_DIR$/vendor/phpspec/php-diff" />
           <root url="file://$MODULE_DIR$/vendor/yiisoft/yii2-debug" />
@@ -60,6 +68,7 @@
           <root url="file://$MODULE_DIR$/vendor/yiisoft/yii2-swiftmailer" />
           <root url="file://$MODULE_DIR$/vendor/bower/jquery.inputmask" />
           <root url="file://$MODULE_DIR$/vendor/yiisoft/yii2-composer" />
+          <root url="file://$MODULE_DIR$/vendor/himiklab/yii2-easy-thumbnail-image-helper" />
           <root url="file://$MODULE_DIR$/vendor/ezyang/htmlpurifier" />
           <root url="file://$MODULE_DIR$/vendor/yiisoft/yii2-bootstrap" />
           <root url="file://$MODULE_DIR$/vendor/yiisoft/yii2-gii" />

@@ -32,7 +32,11 @@ class Book extends ActiveRecord
     {
         return [
             [['title', 'cover'], 'required'],
-            [['title', 'cover'], 'string', 'max' => 120]
+            [['title'], 'string', 'max' => 120],
+            ['cover','file',
+                #'extensions' => 'jpg, png',
+                #'mimeTypes' => 'image/jpeg, image/png', //TODO install the fileinfo PHP extension
+            ],
         ];
     }
 

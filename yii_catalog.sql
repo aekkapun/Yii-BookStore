@@ -16,27 +16,11 @@ id int(11) NOT NULL,
   second_name varchar(60) NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
-INSERT INTO author (id, first_name, second_name) VALUES
-(1, 'Лев', 'Толстой'),
-(2, 'Douglas', 'Adams'),
-(3, 'Erich', 'Gamma'),
-(4, 'Richard', 'Helm'),
-(5, 'Ralph', 'Johnson'),
-(6, 'John', 'Vlissides');
-
 DROP TABLE IF EXISTS author2book;
 CREATE TABLE IF NOT EXISTS author2book (
   author_id int(11) NOT NULL,
   book_id int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-INSERT INTO author2book (author_id, book_id) VALUES
-(2, 1),
-(1, 2),
-(3, 3),
-(4, 3),
-(5, 3),
-(6, 3);
 
 DROP TABLE IF EXISTS book;
 CREATE TABLE IF NOT EXISTS book (
@@ -45,34 +29,17 @@ id int(11) NOT NULL,
   cover varchar(120) NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
-INSERT INTO book (id, title, cover) VALUES
-(1, 'The Hitchhiker''s Guide to the Galaxy', 'H2G2_UK_front_cover.jpg'),
-(2, 'Война и мир', 'Tolstoy_-_War_and_Peace_-_first_edition,_1869.jpg'),
-(3, 'Design Patterns: Elements of Reusable Object-Oriented Software', 'Design_Patterns_cover.jpg');
-
 DROP TABLE IF EXISTS subject;
 CREATE TABLE IF NOT EXISTS `subject` (
 id int(11) NOT NULL,
   `name` varchar(60) NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
-INSERT INTO subject (id, name) VALUES
-(1, 'science fiction'),
-(2, 'novel'),
-(3, 'software engineering');
-
 DROP TABLE IF EXISTS subject2book;
 CREATE TABLE IF NOT EXISTS subject2book (
   subject_id int(11) NOT NULL,
   book_id int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-INSERT INTO subject2book (subject_id, book_id) VALUES
-(1, 1),
-(1, 2),
-(2, 2),
-(3, 3);
-
 
 ALTER TABLE author
  ADD PRIMARY KEY (id);

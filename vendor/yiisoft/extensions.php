@@ -39,4 +39,22 @@ return array (
       '@yii/debug' => $vendorDir . '/yiisoft/yii2-debug',
     ),
   ),
+  'yiisoft/yii2-imagine' => 
+  array (
+    'name' => 'yiisoft/yii2-imagine',
+    'version' => '9999999-dev',
+    'alias' => 
+    array (
+      '@yii/imagine' => $vendorDir . '/yiisoft/yii2-imagine',
+    ),
+  ),
+  'himiklab/yii2-easy-thumbnail-image-helper' => 
+  array (
+    'name' => 'himiklab/yii2-easy-thumbnail-image-helper',
+    'version' => '1.0.1.0',
+    'alias' => 
+    array (
+      '@himiklab/thumbnail' => $vendorDir . '/himiklab/yii2-easy-thumbnail-image-helper',
+    ),
+  ),
 );

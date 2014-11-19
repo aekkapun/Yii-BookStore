@@ -4,7 +4,7 @@ $params = require(__DIR__ . '/params.php');
 $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log'],
+    'bootstrap' => ['log', 'thumbnail'],
     'components' => [
         'request' => [
             'cookieValidationKey' => 'sTz>UWw(7Nz]XxWVrZvg+Ix }ghzSlAt1oqr%nw.`ZY{|wP`G$ 9h,XGJ #WvO|D',
@@ -27,6 +27,10 @@ $config = [
                     'levels' => ['error', 'warning'],
                 ],
             ],
+        ],
+        'thumbnail' => [
+            'class' => 'himiklab\thumbnail\EasyThumbnail',
+            'cacheAlias' => 'assets/gallery_thumbnails',
         ],
         'db' => require(__DIR__ . '/db.php'),
     ],

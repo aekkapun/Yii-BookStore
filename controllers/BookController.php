@@ -5,9 +5,11 @@ namespace app\controllers;
 use Yii;
 use app\models\Book;
 use app\models\BookSearch;
+use yii\data\Pagination;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * BookController implements the CRUD actions for Book model.
@@ -34,7 +36,9 @@ class BookController extends Controller
     {
         $searchModel = new BookSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
+        $pagination = new Pagination();
+        $pagination->pageSize = 18;
+        $dataProvider->setPagination($pagination);
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
@@ -62,13 +66,21 @@ class BookController extends Controller
     {
         $model = new Book();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('create', [
-                'model' => $model,
-            ]);
+        if ($model->load(Yii::$app->request->post())) {
+            $model->cover = UploadedFile::getInstance($model, 'cover');
+            if ($model->validate()) {
+                $coverPath = str_replace('\\', DIRECTORY_SEPARATOR,
+                    dirname(__DIR__).'\web\uploads\covers\\');
+                $coverName = hash('crc32',$model->cover->baseName).'.'.$model->cover->extension;
+                $model->cover->saveAs($coverPath.$coverName);
+                $model->cover = $coverName;
+                $model->save();
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
         }
+        return $this->render('create', [
+            'model' => $model,
+        ]);
     }
 
     /**
@@ -81,13 +93,21 @@ class BookController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('update', [
-                'model' => $model,
-            ]);
+        if ($model->load(Yii::$app->request->post())) {
+            $model->cover = UploadedFile::getInstance($model, 'cover');
+            if ($model->validate()) {
+                $coverPath = str_replace('\\', DIRECTORY_SEPARATOR,
+                    dirname(__DIR__).'\web\uploads\covers\\');
+                $coverName = hash('crc32',$model->cover->baseName).'.'.$model->cover->extension;
+                $model->cover->saveAs($coverPath.$coverName);
+                $model->cover = $coverName;
+                $model->save();
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
         }
+        return $this->render('update', [
+            'model' => $model,
+        ]);
     }
 
     /**
