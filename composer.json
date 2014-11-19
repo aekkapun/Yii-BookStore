@@ -14,6 +14,9 @@
         "yiisoft/yii2-gii": "2.0.0",
         "yiisoft/yii2-debug": "2.0.0",
         "himiklab/yii2-easy-thumbnail-image-helper": "1.0.1",
-        "fortawesome/font-awesome": "4.1.0"
+        "fortawesome/font-awesome": "4.1.0",
+        "yiisoft/jquery-pjax": "v2.0.1",
+        "yiisoft/jquery": "2.1.1",
+        "marciocamello/yii2-x-editable": "dev-master"
     }
 }

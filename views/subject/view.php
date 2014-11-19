@@ -25,13 +25,26 @@ $this->params['breadcrumbs'][] = $this->title;
         ]) ?>
     </p>
     <?php endif ?>
-    <?= DetailView::widget([
-        'model' => $model,
-        'attributes' => [
-            'id',
-            'name',
-        ],
-    ]) ?>
+    <table class="table table-striped table-bordered detail-view">
+        <tr><th>ID</th><td><?=Html::encode($model->id)?></td></tr>
+        <tr><th>Name</th><td><?= Yii::$app->user->isGuest?Html::encode($model->name):
+                \mcms\xeditable\XEditableText::widget([
+                    'model' => $model,
+                    'placement' => 'right',
+                    'pluginOptions' => [
+                        'name' => 'name',
+                    ],
+                    'callbacks' => [
+                        'validate' => new \yii\web\JsExpression('
+                            function(value) {
+                                if($.trim(value) == "") {
+                                    return "This field is required";
+                                }
+                            }
+                        ')
+                    ]
+                ]); ?></td></tr>
+    </table>
     <h2>Related books</h2>
     <?php echo $this->render('../book/_list', ['dataProvider' => $dataProvider]); ?>
 

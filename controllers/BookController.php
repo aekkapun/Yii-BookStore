@@ -24,7 +24,7 @@ class BookController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['create', 'update', 'delete'],
+                'only' => ['create', 'update', 'delete', 'editable'],
                 'rules' => [
                     [
                         'allow' => true,
@@ -180,6 +180,16 @@ class BookController extends Controller
         return $this->redirect(['index']);
     }
 
+    /**
+     * X-Editable action
+     */
+    public function actionEditable()
+    {
+        $post = Yii::$app->request->post();
+        $model = Book::findOne($post['pk']);
+        $model->$post['name']=$post['value'];
+        $model->save();
+    }
     /**
      * Finds the Book model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.

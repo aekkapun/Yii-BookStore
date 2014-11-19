@@ -23,7 +23,7 @@ class SubjectController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['create', 'update', 'delete'],
+                'only' => ['create', 'update', 'delete', 'editable'],
                 'rules' => [
                     [
                         'allow' => true,
@@ -109,6 +109,17 @@ class SubjectController extends Controller
                 'model' => $model,
             ]);
         }
+    }
+
+    /**
+     * X-Editable action
+     */
+    public function actionEditable()
+    {
+        $post = Yii::$app->request->post();
+        $model = Subject::findOne($post['pk']);
+        $model->$post['name']=$post['value'];
+        $model->save();
     }
 
     /**

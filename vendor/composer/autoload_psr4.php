@@ -13,6 +13,7 @@ return array(
     'yii\\composer\\' => array($vendorDir . '/yiisoft/yii2-composer'),
     'yii\\bootstrap\\' => array($vendorDir . '/yiisoft/yii2-bootstrap'),
     'yii\\' => array($vendorDir . '/yiisoft/yii2'),
+    'mcms\\xeditable\\' => array($vendorDir . '/marciocamello/yii2-x-editable'),
     'himiklab\\thumbnail\\' => array($vendorDir . '/himiklab/yii2-easy-thumbnail-image-helper'),
     'cebe\\markdown\\' => array($vendorDir . '/cebe/markdown'),
 );

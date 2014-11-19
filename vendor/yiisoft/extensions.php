@@ -57,4 +57,13 @@ return array (
       '@himiklab/thumbnail' => $vendorDir . '/himiklab/yii2-easy-thumbnail-image-helper',
     ),
   ),
+  'marciocamello/yii2-x-editable' => 
+  array (
+    'name' => 'marciocamello/yii2-x-editable',
+    'version' => '9999999-dev',
+    'alias' => 
+    array (
+      '@mcms/xeditable' => $vendorDir . '/marciocamello/yii2-x-editable',
+    ),
+  ),
 );

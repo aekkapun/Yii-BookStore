@@ -39,7 +39,23 @@ $this->params['breadcrumbs'][] = $this->title;
                 Title
             </th>
             <td>
-                <?= Html::encode($model->title) ?>
+                <?= Yii::$app->user->isGuest?Html::encode($model->title):
+                    \mcms\xeditable\XEditableText::widget([
+                        'model' => $model,
+                        'placement' => 'right',
+                        'pluginOptions' => [
+                            'name' => 'title',
+                        ],
+                        'callbacks' => [
+                            'validate' => new \yii\web\JsExpression('
+                            function(value) {
+                                if($.trim(value) == "") {
+                                    return "This field is required";
+                                }
+                            }
+                        ')
+                        ]
+                    ]); ?>
             </td>
         </tr>
         <tr>
