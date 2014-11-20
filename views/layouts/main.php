@@ -59,7 +59,7 @@ AppAsset::register($this);
 
     <footer class="footer">
         <div class="container">
-            <p class="pull-left">&copy; Ilia Marchenko &lt;<a href="mailto:il-marc@ya.ru">il-marc@ya.ru</a>&gt; 2014</p>
+            <p class="pull-left" style="font-family: monospace;">/** <b>@author</b> Ilia Marchenko &lt;<a href="mailto:il-marc@ya.ru">il-marc@ya.ru</a>&gt; */</p>
             <p class="pull-right">Powered by <a href="http://www.yiiframework.com/" target="_blank" rel="external">Yii Framework</a></p>
         </div>
     </footer>

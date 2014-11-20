@@ -37,17 +37,30 @@ $this->params['breadcrumbs'][] = $this->title;
             <th>
                 Books
             </th>
+            <th>
+
+            </th>
         </tr>
         </thead>
         <?php foreach ($dataProvider->models as $subject): ?>
             <?php /** @var \app\models\Subject $subject */ ?>
             <tr>
-                <td><?=Html::encode($subject->id)?></td>
+                <td class="col-sm-1"><?=Html::encode($subject->id)?></td>
                 <td><?=Html::a(
                         Html::encode($subject->name),
                         ['subject/view','id'=>$subject->id]
                     )?></td>
-                <td><?=Html::encode(count($subject->books))?></td>
+                <td class="col-sm-1"><?=Html::encode(count($subject->books))?></td>
+                <td class="col-sm-2">
+                    <?= Html::a('<i class="glyphicon glyphicon-edit"></i>', ['update', 'id' => $subject->id], ['class' => 'btn btn-primary']) ?>
+                    <?= Html::a('<i class="glyphicon glyphicon-remove"></i>', ['delete', 'id' => $subject->id], [
+                        'class' => 'btn btn-danger',
+                        'data' => [
+                            'confirm' => 'Are you sure you want to delete this item?',
+                            'method' => 'post',
+                        ],
+                    ]) ?>
+                </td>
             </tr>
         <?php endforeach ?>
     </table>

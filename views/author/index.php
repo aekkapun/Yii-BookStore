@@ -40,12 +40,14 @@ $this->params['breadcrumbs'][] = $this->title;
             <th>
                 Books
             </th>
+            <th>
+            </th>
         </tr>
         </thead>
         <?php foreach ($dataProvider->models as $author): ?>
         <?php /** @var \app\models\Author $author */ ?>
         <tr>
-            <td><?=Html::encode($author->id)?></td>
+            <td class="col-sm-1"><?=Html::encode($author->id)?></td>
             <td><?=Html::a(
                     Html::encode($author->first_name),
                     ['author/view','id'=>$author->id]
@@ -54,7 +56,17 @@ $this->params['breadcrumbs'][] = $this->title;
                     Html::encode($author->second_name),
                     ['author/view','id'=>$author->id]
                     )?></td>
-            <td><?=Html::encode(count($author->books))?></td>
+            <td class="col-sm-1"><?=Html::encode(count($author->books))?></td>
+            <td class="col-sm-2">
+                <?= Html::a('<i class="glyphicon glyphicon-edit"></i>', ['update', 'id' => $author->id], ['class' => 'btn btn-primary']) ?>
+                <?= Html::a('<i class="glyphicon glyphicon-remove"></i>', ['delete', 'id' => $author->id], [
+                    'class' => 'btn btn-danger',
+                    'data' => [
+                        'confirm' => 'Are you sure you want to delete this item?',
+                        'method' => 'post',
+                    ],
+                ]) ?>
+            </td>
         </tr>
         <?php endforeach ?>
     </table>
